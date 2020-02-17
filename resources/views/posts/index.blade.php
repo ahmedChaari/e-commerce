@@ -11,7 +11,7 @@
                   <div class="card-icon">
                     <i class="material-icons">assignment</i>
                   </div>
-                  <h4 class="card-title">Liste Des Posts</h4>
+                  <h4 class="card-title">Liste Du Produits</h4>
                   <a href="{{ route('posts.create') }}" title="Ajouter Un Produit" class="btn btn-outline-success btn-sm float-right">+</a>
                 </div>
                 <div class="card-body">
