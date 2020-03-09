@@ -27,7 +27,7 @@
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
     <div class="container">
       <div class="navbar-wrapper">
-        <a class="navbar-brand" href="#">HOME</a>
+        <a class="navbar-brand" href="{{ route('index') }}"><i class="material-icons">home</i> Home</a>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
         <span class="sr-only">Toggle navigation</span>
@@ -68,25 +68,16 @@
       <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
       <div class="container">
         <div class="row">
+     
           <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-            <form class="form" method="" action="">
+            <form method="POST" action="{{ route('login') }}">
+                        @csrf
               <div class="card card-login card-hidden">
                 <div class="card-header card-header-rose text-center">
                   <h4 class="card-title">Login</h4>
-                  
                 </div>
                 <div class="card-body ">
-                 
-                  <span class="bmd-form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">face</i>
-                        </span>
-                      </div>
-                      <input type="text" class="form-control" placeholder="First Name...">
-                    </div>
-                  </span>
+                @include('erreurs.erreur')
                   <span class="bmd-form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -94,7 +85,8 @@
                           <i class="material-icons">email</i>
                         </span>
                       </div>
-                      <input type="email" class="form-control" placeholder="Email...">
+                      <input id="email" placeholder="Email..." type="email" class="form-control" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
                     </div>
                   </span>
                   <span class="bmd-form-group">
@@ -104,12 +96,28 @@
                           <i class="material-icons">lock_outline</i>
                         </span>
                       </div>
-                      <input type="password" class="form-control" placeholder="Password...">
+                      
+                      <input id="password" placeholder="Password..."  type="password" class="form-control" name="password" required autocomplete="current-password">
+
                     </div>
                   </span>
                 </div>
-                <div class="card-footer justify-content-center">
-                  <a href="#pablo" class="btn btn-rose btn-link btn-lg">Lets Go</a>
+                <div class="form-group row">
+                    <div class="col-md-8 offset-md-4">
+                      <div class="form-check">
+                          <input  type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                          <label class="form-check-label" for="remember">
+                              {{ __('Remember Me') }}
+                          </label>
+                      </div>
+                  </div>
+                </div>
+                <div class="form-group row mb-0">
+                    <div class="col-md-8 offset-md-4">
+                        <button type="submit" class="btn btn-primary">
+                            {{ __('Login') }}
+                        </button>
+                    </div>
                 </div>
               </div>
             </form>

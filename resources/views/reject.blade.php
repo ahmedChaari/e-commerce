@@ -426,3 +426,15 @@ content: '|';
     </div>
 </div>
 @endsection
+
+<!-- login Name--->
+                <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">face</i>
+                        </span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="First Name...">
+                    </div>
+                </span>
