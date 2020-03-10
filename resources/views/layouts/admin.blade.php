@@ -113,10 +113,17 @@
                         <span class="sidebar-normal"> Gestion Footers</span>
                     </a>
                 </li>
-                
+                @if (auth()->user()->isAdmin())
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{ route('users.index') }}">
+                            <span class="sidebar-mini"> U</span>
+                            <span class="sidebar-normal"> Gestion Utilisateurs</span>
+                        </a>
+                    </li>
+                @endif
             </ul>
             </div>
-</li>
+        </li>
         <li class="nav-item ">
             <a class="nav-link" data-toggle="collapse" href="#pagesExamples">
             <i class="material-icons">image</i>
@@ -242,7 +249,12 @@
                 <a class="dropdown-item" href="#">Profile</a>
                 <a class="dropdown-item" href="#">Settings</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Log out</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
             </li>
             </ul>
