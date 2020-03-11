@@ -67,6 +67,7 @@
         </div>
         <!-- les nouvou Produit -->
         <div class="col-md-9">
+@if($posts->count() > 0 )
     @foreach($posts as $post) 
             <div class="col-md-4 col-sm-6">
                 <div class="product-grid2">
@@ -92,6 +93,9 @@
                 </div>
             </div>  
     @endforeach
+@else
+      <h3 class="text-center mt-5 mb-5">data not found</h3>
+@endif 
         </div>
    
     </div>
@@ -101,6 +105,7 @@
 <div class="container">
     <h3 class="h3">Les Promotions Actuelles</h3>
     <div class="row">
+    @if($specials->count() > 0 )
     @foreach($specials as $special) 
         <div class="col-md-4 col-sm-6 mb-4">
             <div class="product-grid8">
@@ -130,7 +135,9 @@
             </div>
         </div>
         @endforeach
-        
+    @else
+      <h3 class="text-center mt-5 mb-5">data not found</h3>
+    @endif        
     </div>
 </div>   
 <!-- slider product -->

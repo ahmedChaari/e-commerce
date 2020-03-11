@@ -51,6 +51,7 @@
                         </tr>
                       </tfoot>
                       <tbody>
+                      
                       @foreach($posts as $post)
                       <tr>
                       <td>{{ $post->name }}</td>

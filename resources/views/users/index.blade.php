@@ -11,8 +11,6 @@
                   <div class="card-icon">
                     <i class="material-icons">assignment</i>
                   </div>
-                  <h4 class="card-title">Liste Du Utilisateurs</h4>
-                  <a href="" title="Ajouter Un Produit" class="btn btn-outline-success btn-sm float-right">+</a>
                 </div>
                 <div class="card-body">
                   <div class="toolbar">
@@ -48,19 +46,14 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->role }}</td>
-
                             @if(!$user->isAdmin())
-                            <form action="{{ route('users.make-admin', $user->id) }}" method="POST">
+                          <form action="{{ route('users.make-admin', $user->id) }}" method="POST">
                               @csrf
-                              <td><button type="submit" title="Modiffier un utilisateur"  class="btn btn-outline-primary btn-sm">Admin</button></td>
-                            
+                              <td><button type="submit" title="Modiffier un utilisateur"  class="btn btn-outline-primary btn-sm">Admin</button>
+                              </td>
                               @else <td></td>
                               @endif
-                           
-                             
-                            </form>
-                           
-                         
+                            </form>  
                         </tr>
                       @endforeach
                 @else

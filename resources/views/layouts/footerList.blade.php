@@ -32,6 +32,7 @@
             <div class="row">
             
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    @if($footers->count() > 0 )
     @foreach($footers as $footer) 
             <div class="col-md-6">
                  <img src="/storage/{{ $footer->image }}" alt="Logo-footer"><br>
@@ -42,8 +43,7 @@
                     <img src="{{ asset('/backend/assets/img/paypal.png') }}"    alt="Paypal">
                     <img src="{{ asset('/backend/assets/img/livraison.png') }}" alt="Paypal">
                 </div>
-    @endforeach
-       
+    
                 <div class="adress-services">
   
                    <div class="adress-icon"><i class="fa fa-phone-square" style="font-size: 17px;" aria-hidden="true"></i>&nbsp;&nbsp;   : {{ $footer->tel }} <br></div>
@@ -76,7 +76,10 @@
                 @else<a href="{{ $footer->url_pinter }}"  target="_blank"><img  src="{{ asset('/backend/assets/img/pinterest.png') }}" alt="social"></a>   
                 @endif
                 </div>
-         
+                @endforeach
+    @else
+        <h3 class="text-center mt-5 mb-5">data not found</h3>
+    @endif 
             </div>
    
                     <div class="col-md-3">

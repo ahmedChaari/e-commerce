@@ -29,6 +29,7 @@
             
                 <div class="item active">
                     <div class="row">
+                    @if($items->count() > 0 )
                     @foreach( $items->take(4) as  $item) 
                         <div class="col-sm-3">
                             <div class="col-item">
@@ -60,11 +61,15 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach  
+                    @endforeach 
+                    @else
+                        <h3 class="text-center mt-5 mb-5">data not found</h3>
+                    @endif 
                     </div>
                 </div>
                 <div class="item">
                     <div class="row">
+                    @if($item_actives->count() > 0 )
                     @foreach( $item_actives->take(4) as  $item_active) 
                         <div class="col-sm-3">
                             <div class="col-item">
@@ -97,6 +102,9 @@
                             </div>
                         </div>
                     @endforeach  
+                    @else
+                        <h3 class="text-center mt-5 mb-5">data not found</h3>
+                    @endif 
                     </div>
                 </div>
                 
@@ -124,6 +132,7 @@
             <div class="carousel-inner">
                 <div class="item active">
                     <div class="row">
+                    @if($item_actives->count() > 0 )
                     @foreach( $item_actives->take(3) as  $item_active) 
                         <div class="col-sm-4">
                             <div class="col-item">
@@ -156,11 +165,15 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach   
+                    @endforeach 
+                    @else
+                        <h3 class="text-center mt-5 mb-5">data not found</h3>
+                    @endif   
                     </div>
                 </div>
                 <div class="item">
                     <div class="row">
+                    @if($items->count() > 0 )
                     @foreach( $items->take(3) as  $item) 
                         <div class="col-sm-4">
                             <div class="col-item">
@@ -193,7 +206,10 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach    
+                    @endforeach
+                    @else
+                        <h3 class="text-center mt-5 mb-5">data not found</h3>
+                    @endif     
                     </div>
                 </div>
             </div>

@@ -33,6 +33,7 @@
       <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol> 
     <div class="carousel-inner">
+    @if($headers->count() > 0 )
     @foreach($headers->take(3) as $header) 
       <div class="item @if($loop->first) active @endif ">
         <img style="height: 575px;width: 100%;" src="/storage/{{ $header->image }}" alt="{{ $header->description }}" style="width:100%;">
@@ -42,6 +43,9 @@
           </div>
       </div>
     @endforeach
+    @else
+      <h3 class="text-center mt-5 mb-5">data not found</h3>
+    @endif
     </div>
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>

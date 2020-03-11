@@ -56,6 +56,8 @@ Route::resource('footers','FooterController');
 
 //Users Route
 Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('users/profile', 'UsersController@edit')->name('users.edit-profile');
+    Route::put('users/update', 'UsersController@update')->name('users.update-profile');
     Route::get('users', 'UsersController@index')->name('users.index');
     Route::post('users/{user}/make-admin', 'UsersController@makeAdmin')->name('users.make-admin'); 
 });
