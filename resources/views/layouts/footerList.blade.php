@@ -35,7 +35,7 @@
     @if($footers->count() > 0 )
     @foreach($footers as $footer) 
             <div class="col-md-6">
-                 <img src="/storage/{{ $footer->image }}" alt="Logo-footer"><br>
+                 <img style="width: 46%;" src="/storage/{{ $footer->image }}" alt="Logo-footer"><br>
                  
                 <div class="images-services">
                     <img src="{{ asset('/backend/assets/img/cmi.png') }}"       alt="Paypal">

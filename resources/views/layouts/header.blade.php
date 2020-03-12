@@ -1,41 +1,53 @@
+<style>
 
+.head-icon{
+    padding: 17px 0px;
+    font-size: 14px;
+    color: #333;
+}
+</style>
         <!-- Top Bar -->
         <div class="top_bar">
+        @if($heads->count() > 0 )
+    @foreach($heads as $head) 
             <div class="container">
                 <div class="row">
+
+
                     <div class="col d-flex flex-row">
-                        <div class="top_bar_contact_item">
-                            <div class="top_bar_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918577/phone.png" alt=""></div>+91 9823 132 111
+   
+                       <div class="col-md-2 head-icon">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                             {{ $head->tel }}
                         </div>
-                        <div class="top_bar_contact_item">
-                            <div class="top_bar_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918597/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">contact@bbbootstrap.com</a>
+                        <div class="col-md-2 head-icon">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            {{ $head->adress }}
                         </div>
-                        <div class="top_bar_content ml-auto">
-                            <div class="top_bar_menu"> 
-                                <ul class="standard_dropdown top_bar_dropdown">
-                                    <li> <a href="#">English<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-                                        <ul>
-                                            <li><a href="#">Italian</a></li>
-                                            <li><a href="#">Spanish</a></li>
-                                            <li><a href="#">Japanese</a></li>
-                                        </ul>
-                                    </li>
-                                    <li> <a href="#">$ US dollar<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-                                        <ul>
-                                            <li><a href="#">EUR Euro</a></li>
-                                            <li><a href="#">GBP British Pound</a></li>
-                                            <li><a href="#">JPY Japanese Yen</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="top_bar_user">
-                                <div class="user_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918647/user.svg" alt=""></div>
-                                <div><a href="#">Register</a></div>
-                                <div><a  href="{{ route('login') }}">Sign in</a></div>
-                              
-                            </div>
+                        <div class="col-md-2 head-icon">
+                        <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                            {{ $head->email }}
                         </div>
+                        <div class="col-md-2 head-icon">
+                              <!-- if you need to add new profile -->
+                        </div>
+                        <div class="col-md-2" style="padding-left: 100px;FONT-SIZE: 14PX;">
+                            <ul class="standard_dropdown top_bar_dropdown">
+                                <li> <a href="#">English<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                    <ul>
+                                        <li><a href="#">Italian</a></li>
+                                        <li><a href="#">Spanish</a></li>
+                                        <li><a href="#">Japanese</a></li>
+                                    </ul>
+                                </li>
+                                    
+                            </ul>
+                        </div>
+                        <div class="col-md-2 head-icon">
+                                <i class="fa fa-user" aria-hidden="true"></i>    
+                                <a  href="{{ route('login') }}">Sign in</a>
+                        </div>
+                  
                     </div>
                 </div>
             </div>
@@ -45,9 +57,10 @@
                 <div class="row">
                     <!-- Logo -->
                     <div class="col-lg-2 col-sm-3 col-3 order-1">
-                        <div class="logo_container">
-                            <div class="logo"><a href="#">BBB</a></div>
-                        </div>
+                    
+                        <img style="width: 100%; margin: 9px 4px;" src="/storage/{{ $head->image }}" alt="Logo-footer"><br>
+                
+                       
                     </div> <!-- Search -->
                     <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
                         <div class="header_search">
@@ -55,18 +68,18 @@
                                 <div class="header_search_form_container">
                                     <form action="#" class="header_search_form clearfix"> 
                                         <input type="search" style="z-index: 3;" required="required" class="header_search_input" placeholder="Search for products...">
-                                    <div >
+                                    <div>
                                         <ul class="standard_dropdown main_nav_dropdown">
-                                                    <li class="hassubs" style="margin-right: 82px;"><a href="#">All Categories</a>
-                                                        <ul>
-                                                            <li><a href="#">All Categories<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#">Computers<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#">Laptops<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#">Cameras<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#">Hardware<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#">Smartphones<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </li>
+                                            <li class="hassubs" ><a style="margin: -6px 53px 0px 0px;" href="#">All Categories</a>
+                                                <ul >
+                                                    <li><a href="#" >All Categories<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#">Computers<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#">Laptops<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#">Cameras<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#">Hardware<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#">Smartphones<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </div>
                                     <button type="submit" class="header_search_button trans_300" value="Submit"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918770/search.png" alt=""></button>
@@ -75,6 +88,13 @@
                             </div>
                         </div>
                     </div> <!-- Wishlist -->
+
+
+                    @endforeach
+                    @else
+                        <h3 class="text-center mt-5 mb-5">data not found</h3>
+                    @endif 
+
                     <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
                         <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
                             <div class="wishlist d-flex flex-row align-items-center justify-content-end">

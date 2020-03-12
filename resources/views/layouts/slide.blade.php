@@ -19,7 +19,20 @@
     
 
 }
-    
+.header-style h5{
+  font-size: 40px;
+  font-size: 66px;
+  margin-bottom: 80px;
+  background-color: #00000047;
+}
+
+.header-style p{
+    font-size: 24px;
+    margin-bottom: 100px;
+    color: white;
+    background-color: #00000047;
+}
+
   </style>
 
 
@@ -37,8 +50,8 @@
     @foreach($headers->take(3) as $header) 
       <div class="item @if($loop->first) active @endif ">
         <img style="height: 575px;width: 100%;" src="/storage/{{ $header->image }}" alt="{{ $header->description }}" style="width:100%;">
-          <div class="carousel-caption d-none d-md-block">
-            <h5 style="font-size: 40px;">{{ $header->title }}</h5>
+          <div class="carousel-caption d-none d-md-block header-style">
+            <h5>{{ $header->title }}</h5>
             <p>{{ $header->description }}</p>
           </div>
       </div>

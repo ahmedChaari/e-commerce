@@ -14,6 +14,7 @@ class HeadersController extends Controller
     {
         return view('headers.index')->with('headers',Header::all());
     }
+    
     public function create()
     {
         return view('headers.create');

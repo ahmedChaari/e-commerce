@@ -34,7 +34,7 @@
                         <div class="col-sm-3">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img style="height: 190px;" src="/storage/{{ $item->image }}" class="img-responsive" alt="a" />
+                                    <img style="height: 238px;" src="/storage/{{ $item->image }}" class="img-responsive" alt="a" />
                                 </div>
                                 <div class="info">
                                     <div class="row">
@@ -74,7 +74,7 @@
                         <div class="col-sm-3">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img style="height: 190px;" src="/storage/{{ $item_active->image }}"  class="img-responsive" alt="a" />
+                                    <img style="height: 238px;" src="/storage/{{ $item_active->image }}"  class="img-responsive" alt="a" />
                                 </div>
                                 <div class="info">
                                     <div class="row">
@@ -138,7 +138,7 @@
                             <div class="col-item">
                                 <div class="photo">
                                     
-                                    <img style="height: 250px; width: 360px;" src="/storage/{{ $item_active->image }}"  class="img-responsive" alt="a" />
+                                    <img style="height: 346px; width: 369px;" src="/storage/{{ $item_active->image }}"  class="img-responsive" alt="a" />
                                 </div>
                                 <div class="info">
                                     <div class="row">
@@ -179,7 +179,7 @@
                             <div class="col-item">
                                 <div class="photo">
                                     
-                                    <img style="height: 250px; width: 360px;" src="/storage/{{ $item->image }}"  class="img-responsive" alt="a" />
+                                    <img style="height: 346px; width: 369px;" src="/storage/{{ $item->image }}"  class="img-responsive" alt="a" />
                                 </div>
                                 <div class="info">
                                     <div class="row">

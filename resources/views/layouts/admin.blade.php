@@ -102,6 +102,12 @@
             <div class="collapse" id="Examples">
             <ul class="nav">
                 <li class="nav-item ">
+                    <a class="nav-link" href="{{ route('heads.index') }}">
+                        <span class="sidebar-mini"> HP</span>
+                        <span class="sidebar-normal"> Gestion Head de Page</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
                     <a class="nav-link" href="{{ route('headers.index') }}">
                         <span class="sidebar-mini"> H</span>
                         <span class="sidebar-normal"> Gestion Headers</span>

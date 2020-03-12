@@ -25,7 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('categories','CategoriesController');
 
 //Post Route
-Route::resource('posts','PostsController');
+Route::resource('posts','PostsController')->middleware('auth');
 Route::get('trashed-posts','PostsController@trashed')->name('posts.trashed');
 Route::put('restore-posts/{post}','PostsController@restore')->name('posts.restore');
 
@@ -45,13 +45,17 @@ Route::post('/cart/checkout','CheckoutController@pay')->name('cart.checkout');
 
 //Header Route
 //Route::resource('headers','HeadersController')->middleware('auth');
-Route::resource('headers','HeadersController');
+Route::resource('headers','HeadersController')->middleware('auth');
 Route::get('/slide','HeadersController@slide')->name('slide');
 
 //footer Route
 //Route::get('/footerList','FooterController@list');
 Route::get('/footers/list','FooterController@list')->name('list');
-Route::resource('footers','FooterController');
+Route::resource('footers','FooterController')->middleware('auth');
+
+//Head Route
+Route::get('/head','HeadController@head')->name('head');
+Route::resource('heads','HeadsController')->middleware('auth');
 
 
 //Users Route
