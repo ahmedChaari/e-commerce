@@ -5,6 +5,8 @@ use Stripe\Stripe;
 use Stripe\Charge;
 use Cart;
 use Session;
+use App\Footer;
+use App\Head;
 
 use Illuminate\Http\Request;
 
@@ -12,7 +14,8 @@ class CheckoutController extends Controller
 {
    public function index()
    {
-       return view('checkout');
+       return view('checkout')->with('footers',Footer::all())
+                              ->with('heads',Head::all());
 
    }
    public function pay()

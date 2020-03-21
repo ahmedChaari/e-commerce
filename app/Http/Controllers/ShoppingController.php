@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Post;
 use Cart;
+use App\Head;
+use App\Footer;
 
 
 use Illuminate\Http\Request;
@@ -31,7 +33,9 @@ class ShoppingController extends Controller
     public function cart()
     {
       // Cart::destroy();
-        return view('cart');
+
+        return view('cart')->with('heads',Head::all())
+                           ->with('footers',Footer::all());
     }
     
 

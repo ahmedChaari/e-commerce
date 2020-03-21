@@ -12,10 +12,16 @@ class HeadsTableSeeder extends Seeder
     public function run()
     {
         Head::create([
-            'tel'        =>   '212 664647978',
-            'email'      =>   'shop@gmail.com',
-            'adress'     =>   'kenitra ville -maroc-',
-            'image'  =>   'footers/HDo2Vbut76MXLiEoiAAPai224Bqfwz80SBOt1nSL.png'
+            'tel'           =>   '212 664647978',
+            'email'         =>   'shop@gmail.com',
+            'adress'        =>   'kenitra ville -maroc-',
+            'colorHead'     =>   '#4F55FF',
+            'colorStyle'    =>   '#ffffff',
+            'colorNav'      =>   '#C859FF',
+            'colorStyleNav' =>   '#4F55FF',
+            'fontSizeNav'   =>   '16',
+            'fontSizeHead'  =>   '16',
+            'image'         =>   'heads/HDo2Vbut76MXLiEoiAAPai224Bqfwz80SBOt1nSL.png'
              ]);
     }
 }

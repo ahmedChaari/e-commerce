@@ -73,7 +73,8 @@ class HeadsController extends Controller
      */
     public function update(UpdateHeadRequest $request, Head $head)
     {
-        $data = $request->only(['tel','email','adress','image']);
+        $data = $request->only(['tel','email','adress','image','colorHead',
+        'colorStyle','colorNav','colorStyleNav','fontSizeNav','fontSizeHead']);
 
         //check if image
 

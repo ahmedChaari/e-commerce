@@ -32,17 +32,22 @@
 
 </head>
 
-<body class=" ">
-
+<body>
+@include('layouts.menu')
 <!-- Header -->
 
 <!-- Content -->
 @yield('content')
 <!-- Footer -->
+@include( 'layouts.FooterList' )
 
 
 
 
+</body>
+
+
+<script src="{{ asset('app/js/jscolor.js') }}"></script> 
 
 <script src="{{ asset('app/js/jquery-2.1.4.min.js') }}"></script>
 <script src="{{ asset('app/js/crum-mega-menu.js') }}"></script>
@@ -61,11 +66,6 @@
 
 
 <!-- ...end JS Script -->
-
-
-
-</body>
-
 <!-- Mirrored from theme.crumina.net/html-seosight/16_shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Nov 2016 13:03:04 GMT -->
 </html>
 

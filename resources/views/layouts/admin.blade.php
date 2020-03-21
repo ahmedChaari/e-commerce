@@ -276,8 +276,10 @@
          
         </div>
     </div>
+
+           
+
             <!--   Core JS Files   -->
-    
             <script src="{{ asset('/backend/assets/js/core/popper.min.js') }}"></script>
             <script src="{{ asset('/backend/assets/js/core/jquery.min.js') }}"></script>
             <script src="{{ asset('/backend/assets/js/core/bootstrap-material-design.min.js') }}"></script>
@@ -328,7 +330,6 @@
             <script src="{{ asset('/backend/assets/js/toastr.min.js') }}"></script>
             <script src="{{ asset('/backend/assets/js/admin-min.js') }}"></script>
           
-
     @jquery
    
    <script src="{{ asset('js/app.js') }}"></script> 
@@ -341,6 +342,8 @@
 
    @toastr_js
    @toastr_render
+ <!--   Color JS Files   -->
+ <script src="{{ asset('app/js/jscolor.js') }}"></script> 
 
 
 <script>

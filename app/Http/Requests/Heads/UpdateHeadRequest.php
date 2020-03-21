@@ -24,10 +24,16 @@ class UpdateHeadRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'=>'required',
-            'tel'=>'required',
-            'Adress'=>'nullable',
-            'image'=>'nullable|image',
+            'email'        =>'required',
+            'tel'          =>'required',
+            'Adress'       =>'nullable',
+            'colorHead'    =>'nullable',  
+            'colorStyle'   =>'nullable',
+            'colorNav'     =>'nullable',
+            'colorStyleNav'=>'nullable',
+            'fontSizeNav'  =>'nullable',
+            'fontSizeHead' =>'nullable',
+            'image'        =>'nullable|image',
         ];
     }
 }

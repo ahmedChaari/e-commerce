@@ -18,6 +18,12 @@ class CreateHeadsTable extends Migration
             $table->string('tel');
             $table->string('email')->unique(); 
             $table->string('adress');
+            $table->string('colorHead');
+            $table->string('colorStyle');
+            $table->string('colorNav');
+            $table->string('colorStyleNav');
+            $table->integer('fontSizeNav');
+            $table->integer('fontSizeHead');
             $table->string('image');
             $table->timestamps();
         });

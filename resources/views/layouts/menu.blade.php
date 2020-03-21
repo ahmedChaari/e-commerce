@@ -1,87 +1,124 @@
- <style>
- 
- .navbar
-   {
-      margin-bottom: 0px !important;
-   }
-    .navbar-default
-    {
-    background-color: #1c7ed6 !important;
-    /*border-color: #0d2b3c !important;*/
-    }
-    .navbar-default .navbar-nav>li>a {
-    color: #fff !important;
-    }
+@if($heads->count() > 0 )
+    @foreach($heads as $head) 
+    <style>
 
-.navbar-brand{
-  font-size: 28px;
-    color: white !important;
-
+.head-icon{
+    padding: 17px 0px;
+    font-family: initial;  
+    color: #{{ $head->colorStyle }};  
+    
 }
- </style>
-  <!-- NAV BAR -->
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-     <!-- Img logo for sitWeb -->
-     <!-- <a class="navbar-brand" href="#">
-        <img alt="Brand" src="{{ asset('/backend/assets/img/logo.png') }}">
-      </a> -->
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">
-      <i class="fa fa-home" aria-hidden="true"></i>
-      </a>
-    </div>
+.category-search{margin: -6px 60px 0px 0px;font-family: initial; }
+</style> 
+       <!-- Top Bar -->
+       <div class="top_bar" style="box-shadow: 15px 0 65px rgba(0, 0, 0, 0.3);BACKGROUND-COLOR:#{{ $head->colorHead }};font-size:{{ $head->fontSizeHead }}px;">
+       
+       <div class="container">
+           <div class="row">
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Ctagories</a></li>
-        <li><a href="#">Poduct</a></li>
-        <li><a href="#">Our Contry</a></li> 
-      </ul>
-      
-      <ul class="nav navbar-nav navbar-right">
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-      </form>
-        
-         <!-- cart count panel -->
-         <li class="cart">
-              <a href="#" class="js-cart-animate ">
-                  <i class="seoicon-basket font-fa"></i>
-                  <span class="cart-count">{{ Cart::content()->count() }}</span>
-              </a>
-              <div class="cart-popup-wrap">
-                  <div class="popup-cart">
-                      <h4 class="title-cart align-center">{{ Cart::total() }}DH</h4>
-                     <br>
-                      <a href="/cart">
-                          <div class="btn btn-small btn--dark">
-                              <span class="text">view all catalog</span>
-                          </div>
-                      </a>
-                  </div>
-              </div>
-          </li>
-          <li  class="cart">
-            <a  href="{{ route('login') }}">
-              <i class="fa fa-user font-fa" aria-hidden="true"></i>                
-            </a>   
-          </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-  
+
+               <div class="col d-flex flex-row">
+
+                  <div class="col-md-2 head-icon">
+                       <i class="fa fa-phone" aria-hidden="true"></i> : {{ $head->tel }}
+                   </div>
+                   <div class="col-md-2 head-icon">
+                       <i class="fa fa-envelope-o" aria-hidden="true"></i> : {{ $head->adress }}
+                   </div>
+                   <div class="col-md-2 head-icon">
+                   <i class="fa fa-address-card-o" aria-hidden="true"></i> : {{ $head->email }}
+                   </div>
+                   <div class="col-md-2 head-icon">
+                         <!-- if you need to add new profile -->
+                   </div>
+                   <div class="col-md-2" style="font-family:initial;padding-left: 100px;font-size: 14PX;">
+                       <ul class="standard_dropdown top_bar_dropdown ">
+                           <li> <a href="#">English<i class="fa fa-chevron-down " aria-hidden="true"></i></a>
+                               <ul>
+                                   <li><a href="#">Italian</a></li>
+                                   <li><a href="#">Spanish</a></li>
+                                   <li><a href="#">Japanese</a></li>
+                               </ul>
+                           </li>
+                               
+                       </ul>
+                   </div>
+                   <div class="col-md-2 head-icon">
+                           <i class="fa fa-user" aria-hidden="true"></i>    
+                           <a  href="{{ route('login') }}">Sign in</a>
+                   </div>
+             
+               </div>
+           </div>
+       </div>
+   </div> <!-- Header Main -->
+   <div class="header_main">
+       <div class="container">
+           <div class="row">
+               <!-- Logo -->
+               <div class="col-lg-2 col-sm-3 col-3 order-1">
+               <a href="/"><img style="width: 100%; margin: 9px 4px;" src="/storage/{{ $head->image }}" alt="Logo-footer"><br></a>
+                   
+           
+                  
+               </div> <!-- Search -->
+               <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+                   <div class="header_search">
+                       <div class="header_search_content">
+                           <div class="header_search_form_container">
+                               <form action="#" class="header_search_form clearfix"> 
+                                   <input type="search" style="z-index: 3;" required="required" class="header_search_input" placeholder="Search for products...">
+                               <div>
+                                   <ul class="standard_dropdown main_nav_dropdown">
+                                       <li class="hassubs" ><a class="category-search" href="#">All Categories</a>
+                                           <ul >
+                                               <li><a href="#" >All Categories<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                               <li><a href="#">Computers<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                               <li><a href="#">Laptops<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                               <li><a href="#">Cameras<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                               <li><a href="#">Hardware<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                               <li><a href="#">Smartphones<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                           </ul>
+                                       </li>
+                                   </ul>
+                               </div>
+                               <button type="submit" class="header_search_button trans_300" value="Submit"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918770/search.png" alt=""></button>
+                               </form>
+                           </div>
+                       </div>
+                   </div>
+               </div> <!-- Wishlist -->
+
+
+               @endforeach
+               @else
+                   <h3 class="text-center mt-5 mb-5">data not found</h3>
+               @endif 
+
+               <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
+                   <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
+                       <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                           <div class="wishlist_icon"><img src="{{ asset('/backend/assets/img/heart.png') }}" alt=""></div>
+                           <div class="wishlist_content">
+                               <div class="wishlist_text"><a href="#">Wishlist</a></div>
+                               <div class="wishlist_count">10</div>
+
+                           </div>
+                       </div> <!-- Cart --> 
+                       
+                       <div class="cart">
+                           <div class="cart_container d-flex flex-row align-items-center justify-content-end">
+                               <div class="cart_icon"> <img src="{{ asset('/backend/assets/img/cart.png') }}" alt="">
+                                   <div class="cart_count"><span>{{ Cart::content()->count() }}</span></div>
+                               </div>
+                               <div class="cart_content">
+                                   <div class="cart_text"><a href="/cart">Cart</a></div>
+                                   <div class="cart_price">{{ Cart::total() }} DH</div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div> <!-- Main Navigation -->

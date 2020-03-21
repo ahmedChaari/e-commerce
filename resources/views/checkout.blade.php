@@ -1,17 +1,18 @@
 @extends('layouts.front')
 
 @section('content')
+
+
 <style>
 .order .cart-main .product-quantity .quantity{font-size: 20px ;}
 h5{font-size: 22px;}
 
 </style>
+
 <div class="container-fluid">
 	<div class="row medium-padding120 bg-border-color">
 		<div class="container">
-
 			<div class="row">
-
 				<div class="col-lg-12">
 			<div class="order">
 				<h2 class="h1 order-title text-center">Your Order</h2>
@@ -27,77 +28,47 @@ h5{font-size: 22px;}
 						<tbody>
                         @foreach(Cart::content() as $item)
 						<tr class="cart_item">
-
 							<td class="product-thumbnail">
-
 								<div class="cart-product__item">
 									<div class="cart-product-content">
 										<h5 class="cart-product-title">{{ $item->name }}</h5>
 									</div>
 								</div>
 							</td>
-
 							<td class="product-quantity">
-
 								<div class="quantity">
 									x {{ $item->qty }}
 								</div>
-
 							</td>
-
 							<td class="product-subtotal">
 								<h5 class="total amount">{{ $item->total() }}DH</h5>
 							</td>
-
 						</tr>
                         @endforeach
-						
-
 						<tr class="cart_item subtotal">
-
 							<td class="product-thumbnail">
-
-
 								<div class="cart-product-content">
 									<h5 class="cart-product-title">	TRANSPORT COSTS:</h5>
 								</div>
-
-
 							</td>
-
 							<td class="product-quantity">
-
 							</td>
-
-						
 						</tr>
-
 						<tr class="cart_item total">
-
 							<td class="product-thumbnail">
-
-
 								<div class="cart-product-content">
 									<h5 class="cart-product-title">Total :</h5>
 								</div>
-
-
 							</td>
-
 							<td class="product-quantity">
-
 							</td>
-
 							<td class="product-subtotal">
 								<h5 class="total amount">{{ Cart::total() }}DH</h5>
 							</td>
 						</tr>
-
 						</tbody>
 					</table>
-
 					<div class="cheque">
-
 						<div class="logos">
 							<a href="#" class="logos-item">
 								<img src="{{ asset('app/img/visa.png') }}" alt="Visa">
@@ -111,14 +82,13 @@ h5{font-size: 22px;}
 							<a href="#" class="logos-item">
 								<img src="{{ asset('app/img/amex.png') }}" alt="Amex">
 							</a>
-							
 							<span style="float: right;">
 								<form action="{{ route('cart.checkout')}}" method="POST">
                                 @csrf
 									  <script
 									    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 									    data-key="pk_test_IMvgCsjcz8N3YBsPsdv5tg2800RKlfMaKJ"
-									    data-amount="{{ Cart::total() * 100}}"
+									    data-amount="{{ Cart::total() }} * 100"
 									    data-name="E-commerce tutorial"
 									    data-description="Buy Fruits"
 									    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
