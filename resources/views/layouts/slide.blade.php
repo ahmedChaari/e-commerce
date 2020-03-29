@@ -4,7 +4,6 @@
   font-size: 21px;
 }
 .delivery{
- 
     background-color: #c5cac752;
     padding: 24px 12px 24px 20px;
     margin-top: 17px;
@@ -16,8 +15,10 @@
     margin: 7px 0px 4px 0px;
     color: white;
     background-color: #1c7ed6;
-    
+}
 
+.delivery:hover p{
+    color: white !important;
 }
 .header-style h5{
   font-size: 40px;

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
+use App\Head;
 use Session;
 use App\Http\Requests\posts\createPostRequest;
 use App\Http\Requests\posts\updatePostRequest;
@@ -69,7 +70,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        return view('cartShow', ['post' => Post::find($id)]);
+        return view('cartShow', ['post' => Post::find($id)])
+                                ->with('heads',Head::all());
     }
 
     /**
@@ -107,8 +109,8 @@ class PostsController extends Controller
                 //update image
         $post->update($data);
 
-    toastr()->success('votre post a Modifier avec succes!');
-    return redirect(route('posts.index'));
+        toastr()->success('votre post a Modifier avec succes!');
+        return redirect(route('posts.index'));
     }
 
     /**
@@ -137,7 +139,7 @@ class PostsController extends Controller
 
         }
 
-        public function trashed(){
+    public function trashed(){
 
             $trashed = Post::onlyTrashed()->get();
             return view('posts.index')->with('posts', $trashed);

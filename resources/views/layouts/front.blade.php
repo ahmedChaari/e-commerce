@@ -11,7 +11,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/grid.css') }}">
     <link rel="stylesheet" type="text/css" href=" {{ asset('app/css/styles.css') }}">
     
-   
+    <link href="{{ asset('css/toastr.css') }}" rel="stylesheet">
+    @yield('css')
+    
     <link rel="stylesheet" type="text/css" href=" {{ asset('app/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
@@ -35,7 +37,7 @@
 <body>
 @include('layouts.menu')
 <!-- Header -->
-
+@include('layouts.header')
 <!-- Content -->
 @yield('content')
 <!-- Footer -->
@@ -43,6 +45,20 @@
 
 
 
+@toastr_js
+   @toastr_render
+ <!--   Color JS Files   -->
+ <script src="{{ asset('app/js/jscolor.js') }}"></script> 
+
+
+<script>
+  @if(Session::has('success'))
+    toastr.success('{{ Session::get('success') }}');
+  @endif
+</script>
+
+
+@yield('scripts')
 
 </body>
 
@@ -63,6 +79,8 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/
+jquery.min.js"></script>
 
 
 <!-- ...end JS Script -->

@@ -19,6 +19,8 @@ Route::get('/','FrontEndControler@index')->name('index');
 Route::get('post/{id}','FrontEndControler@single')->name('posts.single');
 
 
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -54,8 +56,11 @@ Route::get('/footers/list','FooterController@list')->name('list');
 Route::resource('footers','FooterController')->middleware('auth');
 
 //Head Route
-Route::get('/head','HeadController@head')->name('head');
+Route::get('/head','HeadsController@head')->name('head');
 Route::resource('heads','HeadsController')->middleware('auth');
+
+//order Route
+Route::post('/orders/store','OrderController@store')->name('orders.store');
 
 
 //Users Route

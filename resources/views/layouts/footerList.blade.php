@@ -1,42 +1,15 @@
 <style>
-.footer
-{
-    padding-top: 69px !important;
-}
-.images-services
-{
-   margin: 31px 0px;
-}
-.adress-services
-{
-    padding: 1px 3px;
-    font-size: 14px;
-}
-.adress-icon{
-    margin: 10px 2px;
-}
-.social-service img {
-   margin: 0px 4px;
-}
-.social-service{
-    margin-top: 27px;
-}
 
-.social-service img:hover {
- 
-}
 </style>
 <footer class="footer">
     <div class="sub-footer">
         <div class="container">
             <div class="row">
-            
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-12">
     @if($footers->count() > 0 )
     @foreach($footers as $footer) 
-            <div class="col-md-6">
+            <div class="col-md-4">
                  <img style="width: 46%;" src="/storage/{{ $footer->image }}" alt="Logo-footer"><br>
-                 
                 <div class="images-services">
                     <img src="{{ asset('/backend/assets/img/cmi.png') }}"       alt="Paypal">
                     <img src="{{ asset('/backend/assets/img/visa.png') }}"      alt="Paypal">
@@ -81,23 +54,28 @@
         <h3 class="text-center mt-5 mb-5">data not found</h3>
     @endif 
             </div>
-   
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <h3>Produit</h3>
-                        <ul>
-                            <li>changed</li>
-                            <li>changed</li>
-                            <li>changed</li>
-                            <li>changed</li>
-                            <li>changed</li>
-                            <li>changed</li>
+                        <ul class="list-group">
+                            @if($categories->count() > 0 )
+                            @foreach($categories->slice(0, 8) as $category) 
+                            <a href=""><li class="list-group-item footer-category">{{ $category->name }}</li></a>
+                            @endforeach
+                            @else
+                            <li class="list-group-item footer-category">data not found</li>
+                            @endif 
+                            
                         </ul>
                     </div>
-                    <div class="col-md-3">I work in a small company, so we don't arrange meetings.
-                  All the questions are discussed immediately, as they came.
+                    <div class="col-md-4">
+                    <h3>About us</h3>
+                    <p class="footer-about">
+                          I work in a small company, so we don't arrange meetings.
+                         All the questions are discussed immediately, as they came.
                     At my previous work we had a schedule of meetings. 
                     So we early knew about time and place of meeting.
-                    In case if something was changed we received an email about all the changes.</div>
+                    In case if something was changed we received an email about all the changes.
+                    </p></div>
                 </div>
             </div>
         </div>

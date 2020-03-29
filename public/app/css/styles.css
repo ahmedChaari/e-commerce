@@ -9442,3 +9442,13 @@ select option {
     -ms-flex-pack: end!important;
     justify-content: flex-end!important;
 }
+.footer{padding-top: 69px !important;}
+.images-services{ margin: 31px 0px;}
+.adress-services{padding: 1px 3px;font-size: 14px;}
+.adress-icon{margin: 10px 2px;}
+.social-service img {margin: 0px 4px;}
+.social-service{margin-top: 27px;}
+.footer-category{background-color: #121111 !important;border: 0px solid #ddd !important;font-size: 17px;font-family: initial;}
+.footer-about{line-height: 2.2;text-align: justify;}
+.modal-content img{width: 86px;margin: -27px 0px;background-color: #999;border-radius: 40px;box-shadow: 1px 1px 2px 10px rgba(27, 25, 25, 0.39);}
+.modal-content{padding: 11px 13px;background-color: #266160;}

@@ -23,17 +23,17 @@
                        <i class="fa fa-phone" aria-hidden="true"></i> : {{ $head->tel }}
                    </div>
                    <div class="col-md-2 head-icon">
-                       <i class="fa fa-envelope-o" aria-hidden="true"></i> : {{ $head->adress }}
+                       <i class="fa fa-envelope-o" aria-hidden="true"></i> : {{ $head->email }}
                    </div>
                    <div class="col-md-2 head-icon">
-                   <i class="fa fa-address-card-o" aria-hidden="true"></i> : {{ $head->email }}
+                   <i class="fa fa-address-card-o" aria-hidden="true"></i> : {{ $head->adress }}
                    </div>
-                   <div class="col-md-2 head-icon">
+                   <div class="col-md-3 head-icon">
                          <!-- if you need to add new profile -->
                    </div>
-                   <div class="col-md-2" style="font-family:initial;padding-left: 100px;font-size: 14PX;">
+                   <div class="col-md-1" >
                        <ul class="standard_dropdown top_bar_dropdown ">
-                           <li> <a href="#">English<i class="fa fa-chevron-down " aria-hidden="true"></i></a>
+                           <li style=" color: #{{ $head->colorStyle }}; font-family:initial;font-size: 14PX;"> <a href="#" >English<i class="fa fa-chevron-down " aria-hidden="true"></i></a>
                                <ul>
                                    <li><a href="#">Italian</a></li>
                                    <li><a href="#">Spanish</a></li>
@@ -69,15 +69,17 @@
                                <form action="#" class="header_search_form clearfix"> 
                                    <input type="search" style="z-index: 3;" required="required" class="header_search_input" placeholder="Search for products...">
                                <div>
-                                   <ul class="standard_dropdown main_nav_dropdown">
-                                       <li class="hassubs" ><a class="category-search" href="#">All Categories</a>
-                                           <ul >
-                                               <li><a href="#" >All Categories<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
-                                               <li><a href="#">Computers<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
-                                               <li><a href="#">Laptops<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
-                                               <li><a href="#">Cameras<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
-                                               <li><a href="#">Hardware<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
-                                               <li><a href="#">Smartphones<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                   <ul class="standard_dropdown main_nav_dropdown category-search">
+                                       <li class="hassubs " ><a class="" href="#">Categories</a>
+                                           <ul>
+                                               @if($categories->count() > 0 )
+                                                    <li><a href="#" >All Categories<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                                @foreach($categories->slice(0, 5) as $category) 
+                                                    <li><a href="#" >{{ $category->name }}<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                                @endforeach
+                                                @else
+                                                    <li><a href="#">data not found<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                                @endif 
                                            </ul>
                                        </li>
                                    </ul>

@@ -1,6 +1,8 @@
 
 <style>
 .product-grid4{margin-bottom: 23px;}
+.product-grid4 .product-image4 img {height: 373px !important;box-shadow: 15px 0 65px rgba(0, 0, 0, 0.3);
+  }
 </style>
 
 
@@ -10,12 +12,15 @@
     <div class="row">
         <!-- single product -->
         <div class="col-md-3">
-           
+
+        @if($bests->count() > 0 )
+    @foreach($bests as $best) 
+                
                 <div class="product-grid4">
                     <div class="product-image4">
                         <a href="#">
-                            <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo5/images/img-5.jpg">
-                            <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo5/images/img-6.jpg">
+                            <img class="pic-1" src="/storage/{{ $best->image }}">
+                            <img class="pic-2" src="/storage/{{ $best->image }}">
                         </a>
                         <ul class="social">
                             <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
@@ -23,41 +28,25 @@
                             <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                         <span class="product-new-label">New</span>
-                        <span class="product-discount-label">-10%</span>
+                        <span class="product-discount-label">-{{ number_format((($best->price/$best->price_promo) * 100) , 0) }}%</span>
                     </div>
                     <div class="product-content">
-                        <h3 class="title"><a href="#">Women's Black Top</a></h3>
+                        <h3 class="title"><a href="#">{{ $best->name }}</a></h3>
                         <div class="price">
-                            $14.40
-                            <span>$16.00</span>
-                        </div>
-                        <a class="add-to-cart" href="">ADD TO CART</a>
-                    </div>
-                </div>
-                <div class="product-grid4">
-                    <div class="product-image4">
-                        <a href="#">
-                            <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo5/images/img-5.jpg">
-                            <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo5/images/img-6.jpg">
-                        </a>
-                        <ul class="social">
-                            <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                            <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                        <span class="product-new-label">New</span>
-                        <span class="product-discount-label">-10%</span>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Women's Black Top</a></h3>
-                        <div class="price">
-                            $14.40
-                            <span>$16.00</span>
+                        {{ $best->price }} DH
+                            <span>{{ $best->price_promo }} DH</span>
                         </div>
                         <a class="add-to-cart" href="">ADD TO CART</a>
                     </div>
                 </div>
            
+@endforeach
+@else
+      <h3 class="text-center mt-5 mb-5">data not found</h3>
+@endif
+
+
+
         </div>
         <!-- les nouvou Produit -->
         <div class="col-md-9">
@@ -73,8 +62,8 @@
                         </a>
                 
                         <ul class="social">
-                            <li><a href="{{ route('posts.show' , $post->id) }}" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                            <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                            <li><a href="" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                            <li><a href="{{ route('cart.rapid.add', ['id' => $post->id]) }}" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
                             <li><a href="{{ route('posts.single' , $post->id) }}" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     

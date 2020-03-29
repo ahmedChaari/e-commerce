@@ -38,8 +38,7 @@ class CategoriesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CreateCategoryRequest $request)
-    {
-                  
+    {          
         Category::create([  
                 'name'=> $request->name
                 ]);

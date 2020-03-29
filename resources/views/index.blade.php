@@ -5,7 +5,8 @@
 
 
 
-@include('layouts.header')
+
+@include('layouts.slide')
 @include( 'layouts.shop' )
 @include( 'layouts.sliderHome' )
 

@@ -5,6 +5,7 @@ use App\Post;
 use Cart;
 use App\Head;
 use App\Footer;
+use App\Category;
 
 
 use Illuminate\Http\Request;
@@ -35,7 +36,8 @@ class ShoppingController extends Controller
       // Cart::destroy();
 
         return view('cart')->with('heads',Head::all())
-                           ->with('footers',Footer::all());
+                           ->with('footers',Footer::all())
+                           ->with('categories',Category::all());
     }
     
 
