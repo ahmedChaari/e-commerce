@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Order;
 
 //Route::get('/', function () {return view('index');});
 
@@ -61,7 +61,8 @@ Route::resource('heads','HeadsController')->middleware('auth');
 
 //order Route
 Route::post('/orders/store','OrderController@store')->name('orders.store');
-
+Route::get('/orders','OrderController@index')->name('orders.index');
+Route::post('orders/{order}/make-valid', 'OrderController@makeAdmin')->name('orders.make-valid'); 
 
 //Users Route
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -69,4 +70,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('users/update', 'UsersController@update')->name('users.update-profile');
     Route::get('users', 'UsersController@index')->name('users.index');
     Route::post('users/{user}/make-admin', 'UsersController@makeAdmin')->name('users.make-admin'); 
+});
+View::composer(['*'],function($valid)
+{
+    $valid->with(['valids' => Order::where('valid', '=', 'no_valid')->get()]);
 });

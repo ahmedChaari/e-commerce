@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->string('name'); 
             $table->string('tel'); 
             $table->string('adress');
+            $table->string('qty');
             $table->decimal('total_payment', 5, 2);
             $table->enum('valid',['valid','no_valid'])->default('no_valid');//validation for command
             $table->timestamps();

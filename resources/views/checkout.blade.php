@@ -126,6 +126,10 @@ h5{font-size: 22px;}
 					<input  id="tel" style="margin-bottom:4px" class="form-control" type="tel" name="tel" placeholder="votre Numero tel">
 					<textarea id="adress" style="margin-bottom:4px" class="form-control" name="adress"  cols="2" rows="2"
 						placeholder="votre Adress complais"></textarea>
+					
+					@foreach(Cart::content() as $item)     
+						<input type="hidden" name="qty" value="{{ $item->qty }},{{ $item->name }}">	
+					@endforeach
 					<input type="hidden" name="total_payment" value="{{ Cart::total() }}">
 					<button name="contact" type="submit" class="btn btn-success btn-sm" id="contact" disabled>P. COMMANDE <span class="badge">{{ Cart::total() }} DH</span></button>
 			</div>

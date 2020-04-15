@@ -10,7 +10,11 @@
 
     Travel Company Manage
 </title>
-
+<style>
+.boutonarticle{
+box-shadow:0px 0px 10px red;
+}
+</style>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -187,9 +191,9 @@
             </a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link"  href="#">
+            <a class="nav-link"  href="{{ route('orders.index')}}">
             <i class="material-icons">content_paste</i>
-            <p> Factures
+            <p> Orders
                 <b class="caret"></b>
             </p>
             </a>
@@ -229,16 +233,25 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="material-icons">notifications</i>
-                <span class="notification">5</span>
-                <p class="d-lg-none d-md-block">
-                    Some Actions
+                @if(count($valids) > 0 )
+                  <a href="{{ route('orders.index') }}"><span class="notification boutonarticle">{{ $valids->count() }}</span></a>  
+                @else 
+                    <span class="notification">0</span>
+                @endif
+                    <p class="d-lg-none d-md-block">
+                Some Actions
                 </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                @if(count($valids) > 0 )
+                <a class="dropdown-item boutonarticle" href="{{ route('orders.index') }}">You have &nbsp;<span style="color: #3490dc;font-size: 14px;"> {{ $valids->count() }} new Orders</span></a>
+                @else 
+                <a class="dropdown-item" href="{{ route('orders.index') }}">You Don't have any Order</span></a>
+                @endif
+                <a class="dropdown-item" href="#">You're now friend wi</a>
                 <a class="dropdown-item" href="#">You're now friend with Andrew</a>
                 <a class="dropdown-item" href="#">Another Notification</a>
                 <a class="dropdown-item" href="#">Another One</a>
