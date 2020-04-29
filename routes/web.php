@@ -27,8 +27,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('categories','CategoriesController');
 
 //Post Route
-Route::resource('posts','PostsController')->middleware('auth');
+Route::get('getlist-posts','PostsController@getlist')->name('posts.list');
+Route::resource('posts','PostsController');
 Route::get('trashed-posts','PostsController@trashed')->name('posts.trashed');
+
+
+
 Route::put('restore-posts/{post}','PostsController@restore')->name('posts.restore');
 
 //Shopping Route

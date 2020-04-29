@@ -23,13 +23,12 @@
                     <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                       <thead>
                         <tr>
-                        <th>Name</th>
-                        <th>content</th>
-                           <th>image</th>
+                          <th>image</th>
+                          <th>Name</th>
+                          <th>Category</th>
                            <th>Price</th>
                            <th>Price 1</th>
                            <th>%</th>
-                           
                            <th>Category</th>
                            <th class="disabled-sorting text-right">Actions</th>
                            <th class="disabled-sorting text-right"></th>
@@ -37,27 +36,29 @@
                       </thead>
                       <tfoot>
                         <tr>
-                        <th>Name</th>
-                        <th>content</th>
-                           <th>image</th>
-                           
+                          <th>image</th>
+                          <th>Name</th>
+                          <th>Category</th>
                            <th>Price</th>
                            <th>Price 1</th>
                            <th>%</th>
                            
-                           <th>Category</th>
                            <th class="disabled-sorting text-right">Actions</th>
                            <th class="disabled-sorting text-right"></th>
                         </tr>
                       </tfoot>
                       <tbody>
-                      
                       @foreach($posts as $post)
                       <tr>
+                      <td><img style="border-radius: 50%;" withe="60px" height="60px" src="/storage/{{ $post->image }}" alt=""></td>
                       <td>{{ $post->name }}</td>
-                      <th>{{ $post->content }}</th>
-                        <td><img style="border-radius: 50%;" withe="60px" height="60px" src="/storage/{{ $post->image }}" alt=""></td>
-                       
+                      <!-- affiche product for category-->
+                        @if($post->category->name  == '')
+                          <td><a href=""></a></td>
+                          @else
+                          <td><a href="{{ route('categories.edit', $post->category->id) }}">{{ $post->category->name }}</a></td>
+                          @endif
+                        
                         <td>{{ $post->price }}</td>
                            @if($post->price_promo > 0)
                         <td style="color:red;text-decoration: line-through;">{{ $post->price_promo }}</td>
@@ -70,12 +71,7 @@
                              @else
                         <td></td>
                              @endif
-                  <!-- affiche product for category-->
-                  @if($post->category->name  == '')
-                     <td><a href=""></a></td>
-                     @else
-                     <td><a href="{{ route('categories.edit', $post->category->id) }}">{{ $post->category->name }}</a></td>
-                     @endif
+                 
                      
                      @if($post->trashed())
                      <td>

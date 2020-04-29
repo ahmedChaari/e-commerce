@@ -25,7 +25,7 @@ class updatePostRequest extends FormRequest
     {
         return [
             'name'=>'required',
-            'description'=>'required',
+          
             'content'=>'required',
             'price'=>'required',  
             'published_at'=>'required|date',

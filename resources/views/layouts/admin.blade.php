@@ -191,7 +191,7 @@ box-shadow:0px 0px 10px red;
             </a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link"  href="{{ route('orders.index')}}">
+            <a class="nav-link"  href="{{ route('posts.list')}}">
             <i class="material-icons">content_paste</i>
             <p> Orders
                 <b class="caret"></b>

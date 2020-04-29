@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use App\Head;
+use App\Footer;
 use Session;
 use App\Http\Requests\posts\createPostRequest;
 use App\Http\Requests\posts\updatePostRequest;
@@ -25,6 +26,14 @@ class PostsController extends Controller
     public function index()
     {
         return view('posts.index')->with('posts',Post::all());
+    }
+
+    public function getlist()
+    {
+        return view('posts.getlist')->with('posts',Post::all())
+                                    ->with('heads',Head::all())
+                                     ->with('categories', Category::all())
+                                     ->with('footers',Footer::all());;
     }
 
     /**
@@ -50,7 +59,7 @@ class PostsController extends Controller
         Post::create([  
             'name'       => $request->name,
             'content'     => $request->content,
-            'description' => $request->description,
+            'description' => str_slug($request->name),
             'image'       => $image,
             'price' => $request->price,
             'price_promo' => $request->price_promo,
@@ -70,8 +79,10 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        return view('cartShow', ['post' => Post::find($id)])
-                                ->with('heads',Head::all());
+        return view('posts.show', ['post' => Post::find($id)])
+                                     ->with('heads',Head::all())
+                                     ->with('categories', Category::all())
+                                     ->with('footers',Footer::all());
     }
 
     /**

@@ -45,7 +45,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-md-6">
+                        
                             <div class="form-group col-md-6">
                                 <label for="">Prix Vente</label>
                                     <input type="number" name="price" class="form-control" value="{{ isset($post) ? $post->price: '' }}">
@@ -54,12 +54,8 @@
                                 <label for="">Prix <span style="color:red;text-decoration: line-through;">Promotion</span></label>
                                     <input type="number" name="price_promo" class="form-control" value="{{ isset($post) ? $post->price_promo: '' }}">
                             </div>
-                        </div>
-                        <div class="form-group col-md-6">                     
-                            <label for="">description</label>
-                                <textarea name="description" id="description" cols="5" class="form-control" rows="5">
-                                {{ isset($post) ? $post->description: '' }}</textarea>
-                        </div>
+                        
+                        
                         <div class="form-group col-md-12">
                             <label for="">content</label>
                             <input id="content" type="hidden" value="{{ isset($post) ? $post->content: '' }}" name="content">

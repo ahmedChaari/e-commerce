@@ -25,7 +25,7 @@ class createPostRequest extends FormRequest
     {
         return [
             'name'=>'required|unique:posts',
-            'description'=>'required',
+           
             'content'=>'required',
             'price'=>'required',
             'image'=>'required|image',
