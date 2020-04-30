@@ -15,9 +15,7 @@ class CheckoutController extends Controller
 {
    public function index()
    {
-       return view('checkout')->with('footers',Footer::all())
-                              ->with('heads',Head::all())
-                              ->with('categories',Category::all());
+       return view('checkout')->with('categories',Category::all());
 
    }
    public function pay()

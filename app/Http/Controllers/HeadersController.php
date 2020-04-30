@@ -31,8 +31,6 @@ class HeadersController extends Controller
     toastr()->success('votre slide a ajouter avec succes!');
     return redirect(route('headers.index'));
     }
-
-
     public function edit(Header $header)
     {
        return view('headers.create')->with('header',$header);
@@ -58,23 +56,11 @@ class HeadersController extends Controller
     toastr()->success('votre slideBare a Modifier avec succes!');
     return redirect(route('headers.index'));
     }
-
     public function destroy(Header $header)
     {
         $header->delete();
-
         toastr()->error('Votre slideBare a été Supprimé avec succès!', 'Inconcevable!');
         return redirect(route('headers.index'));
 
     }
-
-    
-    public function slide()
-    {
-       
-        return view('/header')->with('headers',Header::all());
-
-    }
-
-
 }

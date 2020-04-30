@@ -1,5 +1,4 @@
 <!------ slider carousel for Index home ---------->
-
 <style>
     .slider-4{font-size: 14px;}
     .slider-5{font-size: 15px;}

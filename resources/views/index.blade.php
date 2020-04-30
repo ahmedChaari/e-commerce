@@ -1,15 +1,11 @@
 @extends('layouts.front')
 
 @section('content')
+<!-- Header -->
 
-
-
-
-
-@include('layouts.slide')
-@include( 'layouts.shop' )
-@include( 'layouts.sliderHome' )
-
+@include('slides.slide')
+@include( 'slides.shop' )
+@include( 'slides.sliderHome' )
 
 @endsection
 

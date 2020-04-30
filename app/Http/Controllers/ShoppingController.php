@@ -35,9 +35,7 @@ class ShoppingController extends Controller
     {
       // Cart::destroy();
 
-        return view('cart')->with('heads',Head::all())
-                           ->with('footers',Footer::all())
-                           ->with('categories',Category::all());
+        return view('cart')->with('categories',Category::all());
     }
     
 

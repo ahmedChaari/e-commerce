@@ -438,3 +438,34 @@ content: '|';
                       <input type="text" class="form-control" placeholder="First Name...">
                     </div>
                 </span>
+                SERCH FUNCTION 
+                <div>
+                                   <ul class="standard_dropdown main_nav_dropdown category-search">
+                                       <li class="hassubs " ><a class="" href="#">Categories</a>
+                                           <ul>
+                                               @if($categories->count() > 0 )
+                                                    <li><a href="#" >All Categories<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                                @foreach($categories->slice(0, 5) as $category) 
+                                                    <li><a href="#" >{{ $category->name }}<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                                @endforeach
+                                                @else
+                                                    <li><a href="#">data not found<i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+                                                @endif 
+                                           </ul>
+                                       </li>
+                                   </ul>
+                               </div>
+
+
+
+    public function search()
+        {
+            $search = request()->query('search');
+            if ($search) {
+                $posts = Post::where('name','like', "%{search}%");
+                }
+            else {
+                $posts = Post::paginate(9);
+            }
+            return view('layouts.search');
+        }

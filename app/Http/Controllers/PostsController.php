@@ -11,6 +11,7 @@ use Session;
 use App\Http\Requests\posts\createPostRequest;
 use App\Http\Requests\posts\updatePostRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Input;
 
 class PostsController extends Controller
 {
@@ -30,10 +31,8 @@ class PostsController extends Controller
 
     public function getlist()
     {
-        return view('posts.getlist')->with('posts',Post::all())
-                                    ->with('heads',Head::all())
-                                     ->with('categories', Category::all())
-                                     ->with('footers',Footer::all());;
+        return view('posts.getlist')->with('posts',Post::all());
+                                 
     }
 
     /**
@@ -79,10 +78,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        return view('posts.show', ['post' => Post::find($id)])
-                                     ->with('heads',Head::all())
-                                     ->with('categories', Category::all())
-                                     ->with('footers',Footer::all());
+        return view('posts.show', ['post' => Post::find($id)]);
+                                    
     }
 
     /**
@@ -144,8 +141,6 @@ class PostsController extends Controller
             toastr()->warning('votre post à mettre dans le corbeille avec succès!');
         }
 
-      
-
        return redirect(route('posts.index'));
 
         }
@@ -163,4 +158,16 @@ class PostsController extends Controller
 
                 return redirect()->back();
         }
+
+    public function search(Request $request)
+         {
+        $search = Input::get ( 'search' );
+        $posts   = Post::where('name','LIKE', "%$search%")->get();
+
+        if (count ( $posts ) > 0)
+            return view ( 'layouts.search' )->with(compact('posts'));
+        else
+            return view ( 'layouts.search' )->withMessage ( 'Produit introuvable ,Chercher de trouver autre produit..' );
+        }
+
 }

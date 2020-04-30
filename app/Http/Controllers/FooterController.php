@@ -15,7 +15,6 @@ class FooterController extends Controller
     public function index()
     {
         return view('footers.index')->with('footers',Footer::all());
-    
     }
 
     public function list()
@@ -28,8 +27,6 @@ class FooterController extends Controller
     {
         return view('footers.edit')->with('footer',$footer);
     }
-
-    
     public function update(EditFooterRequest $request, Footer $footer)
     {
         $data = $request->only(['tel','email','adress','copyright',

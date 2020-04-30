@@ -11,6 +11,9 @@
 |
 */
 use App\Order;
+use App\Head;
+use App\Footer;
+use App\Category;
 
 //Route::get('/', function () {return view('index');});
 
@@ -26,7 +29,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('categories','CategoriesController');
 
+
 //Post Route
+Route::post('search','PostsController@search')->name('posts.search');
+
 Route::get('getlist-posts','PostsController@getlist')->name('posts.list');
 Route::resource('posts','PostsController');
 Route::get('trashed-posts','PostsController@trashed')->name('posts.trashed');
@@ -78,4 +84,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
 View::composer(['*'],function($valid)
 {
     $valid->with(['valids' => Order::where('valid', '=', 'no_valid')->get()]);
+});
+View::composer(['*'],function($heads)
+{
+    $heads->with(['heads' => Head::all()]);
+});
+View::composer(['*'],function($footers)
+{
+    $footers->with(['footers' => Footer::all()])->with(['categories' => Category::all()]);
 });
