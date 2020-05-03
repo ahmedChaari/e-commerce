@@ -24,9 +24,9 @@ class FrontEndControler extends Controller
                          ->with(['specials' => Post::where('price_promo' , '>' , 0)->paginate(6)])
                          ->with(['bests' => Post::where('price_promo' , '>' , 0)->orderBy('created_at', 'desc')->take(2)->get()]);
    }
-   public function single($id)
+   public function single(Post $post)
    {
-      return view('single', ['post' => Post::find($id)])->with('categories',Category::all());
+      return view('single')->with('post',$post)->with('categories',Category::all());
      
    }
 

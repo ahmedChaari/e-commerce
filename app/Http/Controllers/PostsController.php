@@ -76,9 +76,11 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        return view('posts.show', ['post' => Post::find($id)]);
+       
+        return view('posts.show')->with('post',$post)
+                                 ->with('specials', $post);
                                     
     }
 
@@ -90,7 +92,7 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-       return view('posts.create')->with('post',$post)->with('categories', Category::all());
+       return view('posts.create')->with('post', $post)->with('categories', Category::all());
     }
 
     /**

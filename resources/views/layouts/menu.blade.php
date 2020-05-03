@@ -33,19 +33,19 @@
                    </div>
                    <div class="col-md-1" >
                        <ul class="standard_dropdown top_bar_dropdown ">
-                           <li style=" color: #{{ $head->colorStyle }}; font-family:initial;font-size: 14PX;"> <a href="#" >English<i class="fa fa-chevron-down " aria-hidden="true"></i></a>
+                           <li style=" color: #{{ $head->colorStyle }}; font-family:initial;font-size: 14PX;"> <a href="#" ><img src="{{ asset('/backend/assets/img/language.png') }}" alt=""></a>
                                <ul>
-                                   <li><a href="#">Italian</a></li>
-                                   <li><a href="#">Spanish</a></li>
-                                   <li><a href="#">Japanese</a></li>
+                                   <li><a href="#">English</a></li>
+                                   <li><a href="#">Franch</a></li>
+                                   <li><a href="#">Arabic</a></li>
                                </ul>
                            </li>
                                
                        </ul>
                    </div>
                    <div class="col-md-2 head-icon">
-                           <i class="fa fa-user" aria-hidden="true"></i>    
-                           <a  href="{{ route('login') }}">Sign in</a>
+                            
+                           <a  style="font-size:{{ $head->fontSizeHead }}px;color: #{{ $head->colorStyle }};" href="{{ route('login') }}">Login/Register</a>
                    </div>
              
                </div>
@@ -79,6 +79,8 @@
                                
                                <button type="submit" class="header_search_button trans_300" value="Submit">
                                     <img src="{{ asset('/backend/assets/img/search.png') }}" alt=""></button>
+                                    
+
                                </form>
                            </div>
                        </div>

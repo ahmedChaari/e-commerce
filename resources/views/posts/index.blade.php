@@ -29,7 +29,7 @@
                            <th>Price</th>
                            <th>Price 1</th>
                            <th>%</th>
-                           <th>Category</th>
+                           
                            <th class="disabled-sorting text-right">Actions</th>
                            <th class="disabled-sorting text-right"></th>
                         </tr>
@@ -67,7 +67,7 @@
                            @endif
                      <!-- promotion affiche ou bien non-->
                            @if($post->price_promo > 0)
-                        <td>{{ number_format((($post->price/$post->price_promo) * 100) , 2) }}%</td>
+                        <td>- {{ number_format(((($post->price_promo - $post->price) * 100) / $post->price_promo) , 0) }}%</td>
                              @else
                         <td></td>
                              @endif
@@ -75,7 +75,7 @@
                      
                      @if($post->trashed())
                      <td>
-                        <form action="{{ route('posts.restore', $post->id) }}" method="post">
+                        <form action="{{ route('posts.restore', $post->post) }}" method="post">
                            @csrf
                            @method('PUT')
                            <button type="submit" title="Restorer le produit" class="btn btn-outline-primary btn-sm"><i class="fa fa-window-restore" aria-hidden="true"></i>
@@ -83,7 +83,7 @@
                         </form>
                      </td>
                              @else
-                     <td><a href="{{ route('posts.edit', $post->id) }}" class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                     <td><a href="{{ route('posts.edit', $post->name) }}" class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                      </td>
                              @endif
                      <td><form action="{{ route('posts.destroy',  $post->id) }}" method="POST" >

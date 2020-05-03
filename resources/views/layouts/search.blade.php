@@ -14,7 +14,7 @@
 @if(isset($posts))
  <!-- les nouvou Produit -->
 
-        <nav style="padding: 2% 10%;" aria-label="breadcrumb">
+        <nav style="padding: 1% 7%;" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">  </a></li>
@@ -48,6 +48,7 @@
                         <strong style="color: #f26522;float:right">{{ $post->category->name }}</strong>
                     </h3>
                     <p class="product-details-info-text">{!! $post->content !!}</p>
+                    <a class="btn btn-info" href="{{ route('posts.single' , $post->id) }}" data-tip="Add to Cart">Add to Cart<i class="fa fa-shopping-cart"></i></a>
                 </div>
             </div>
         </div>
@@ -60,7 +61,7 @@
 @endforeach
 
 @elseif(isset($message))
-<div style="padding: 2% 10%;">
+<div style="padding: 1% 7%;">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -70,4 +71,5 @@
         <p class="search-message">{{ $message }}</p> 
 </div>
 @endif
+
 @endsection

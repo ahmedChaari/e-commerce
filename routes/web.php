@@ -19,8 +19,10 @@ use App\Category;
 
 //FrontEnd Route
 Route::get('/','FrontEndControler@index')->name('index');
-Route::get('post/{id}','FrontEndControler@single')->name('posts.single');
+Route::get('post/{post}','FrontEndControler@single')->name('posts.single');
 
+
+//Route::put('post/{post}','FrontEndControler@specialsShow')->name('specials.show');
 
 
 
@@ -49,7 +51,7 @@ Route::get('/cart/delete/{id}','ShoppingController@cartDelete')->name('cart.dele
 
 Route::get('/cart/incr/{id}/{qty}','ShoppingController@incr')->name('cart.incr');
 Route::get('/cart/decr/{id}/{qty}','ShoppingController@decr')->name('cart.decr');
-Route::get('/cart/rapid/add/{id}' ,'ShoppingController@addRapid')->name('cart.rapid.add');
+Route::get('/cart/rapid/add/{post}' ,'ShoppingController@addRapid')->name('cart.rapid.add');
 
 //checkout Route
 Route::get('/cart/checkout','CheckoutController@index')->name('cart.checkout');
